@@ -1,0 +1,5 @@
+const addUserBtn = document.getElementById()
+const doubleWealthBtn  = document.getElementById()
+const filterWealthBtn = document.getElementById()
+const sortBtn = document.getElementById()
+const aggergateBtn = document.getElementById()
