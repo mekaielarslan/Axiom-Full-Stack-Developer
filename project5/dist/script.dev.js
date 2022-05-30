@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 // Get Dom
 var addUserBtn = document.getElementById('add-user');
 var doubleWealthBtn = document.getElementById('double-wealth');
@@ -65,13 +71,81 @@ function updateDOM() {
     var divElement = document.createElement('div'); // Assign a class to the new div
 
     divElement.classList.add('user');
-    divElement.innerHTML = "<strong>".concat(user.name, "</strong> ").concat(user.wealth); // Display the new divElement in the DOM
+    divElement.innerHTML = "<strong>".concat(user.name, "</strong> $").concat(formatWealth(user.wealth)); // Display the new divElement in the DOM
 
     main.appendChild(divElement);
   });
 }
 
-; // Generate some user on initial page load
+; // Format wealth number as dollar
 
+function formatWealth(wealth) {
+  return wealth.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
+
+; // Functon to double wealth of all user
+
+function doubleWealth() {
+  // User map method t create a new array with double wealth
+  userArray = userArray.map(function (user) {
+    return _objectSpread({}, user, {
+      wealth: user.wealth * 2
+    });
+  }); // Update the DOM after is doubled
+
+  updateDOM();
+}
+
+; // Function to filter and display only user with wealth greater than $1,000,000 
+
+function filterWealth() {
+  // Run the filter method to filter and show Millionaire
+  userArray = userArray.filter(function (user) {
+    return user.wealth > 1000000;
+  }); //  Update  the DOM after users are filtered 
+
+  updateDOM();
+}
+
+; // Function to sort users by wealth
+
+function sortUser() {
+  // Use a campare function to short users based on wealth in descending order
+  userArray.sort(function (a, b) {
+    return b.wealth - a.wealth;
+  });
+  updateDOM();
+}
+
+; //Function to sum all the wealth from all users 
+
+function calculateNetWealth() {
+  // User reduce method to calculate sum of all wealth
+  var netWealth = userArray.reduce(function (acc, user) {
+    return acc += user.wealth;
+  }, 0); //  Create new div element
+
+  var totalWealthDiv = document.createElement('div'); // create content for totalWealthDiv 
+
+  totalWealthDiv.innerHTML = "<h3>Net Wealth:<strong> $".concat(formatWealth(netWealth), "</strong></h3>"); // Append the new totalWealthDiv into DOM
+
+  main.appendChild(totalWealthDiv);
+}
+
+; // Event Listeners
+// 1. Lestion for click on Add User Button
+
+addUserBtn.addEventListener('click', generateRandomUser); // 2. listen for click on the Double Wealth Button 
+
+doubleWealthBtn.addEventListener('click', doubleWealth); // 3. Listen for click on the Show Millionaire Button
+
+filterWealthBtn.addEventListener('click', filterWealth); // 4.listen for click on sort users Button
+
+sortBtn.addEventListener('click', sortUser); // 5.Listen for click on Calculate Net Wealth Buttpn
+
+sumWealthBtn.addEventListener('click', calculateNetWealth); // Generate some user on initial page load
+
+generateRandomUser();
+generateRandomUser();
 generateRandomUser(); // generateRandomUser();
 // generateRandomUser();

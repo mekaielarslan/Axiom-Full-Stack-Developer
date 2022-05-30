@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@400;700&display=swap');
+
 
 *{
     box-sizing: border-box;
 }
 
 body {
-    background: color #373F47; 
+    background: #2e3033; 
     font-family: 'Open Sans', sans-serif;
     color: #AAABBC;
     display: flex;
@@ -29,7 +30,7 @@ aside {
 
 button {
     cursor: pointer;
-    background-color: #AAABBC;
+    background: #AAABBC;
     border: 0;
     border-radius: 3px;
     display: block;
@@ -51,9 +52,10 @@ h2 {
 }
 
 h3 {
-    background-color: #f2f2f2;
+    font-weight: bold;
+    background-color: transparent;
     border-bottom: 1px solid #AAABBC;
-    padding-bottom: 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     margin: 20px 0 0;
