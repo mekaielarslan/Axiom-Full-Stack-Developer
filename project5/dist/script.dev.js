@@ -17,7 +17,7 @@ function generateRandomUser() {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return regeneratorRuntime.awrap(fetch("https://randomuser.me/api"));
+          return regeneratorRuntime.awrap(fetch("https://randomuser.me/api/"));
 
         case 2:
           res = _context.sent;
@@ -27,10 +27,10 @@ function generateRandomUser() {
         case 5:
           data = _context.sent;
           // Save the user data 
-          user = data.results[0]; // Create new user  object with random user and wealth
+          user = data.results[0]; // Create new user  object with random user name and wealth
 
           newUser = {
-            user: "".concat(user.name.title, " ").concat(user.name.first, " ").concat(user.name.last),
+            name: "".concat(user.name.title, " ").concat(user.name.first, " ").concat(user.name.last),
             wealth: Math.floor(Math.random() * 10000000)
           }; //  Add newUser object to userArray
 
@@ -58,14 +58,14 @@ function addUserData(user) {
 function updateDOM() {
   var userData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : userArray;
   // Wipe away content from main element
-  main.innerHTML = '<h2><strong>User</strong> Wealth</h2>'; // loop over  userData array and display user in the DOM
+  main.innerHTML = '<h2><strong>User</strong>Wealth</h2>'; // loop over  userData array and display user in the DOM
 
   userData.forEach(function (user) {
     // Create a new div element for the user
     var divElement = document.createElement('div'); // Assign a class to the new div
 
     divElement.classList.add('user');
-    divElement.innerHTML = "<strong>".concat(user.name, "</strong> \n       ").concat(formatNumberToDollar(user.wealth)); // Display the new divElement in the DOM
+    divElement.innerHTML = "<strong>".concat(user.name, "</strong> ").concat(user.wealth); // Display the new divElement in the DOM
 
     main.appendChild(divElement);
   });
