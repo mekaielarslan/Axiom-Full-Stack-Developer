@@ -13,6 +13,10 @@
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
+    transition: transform 0.5s ease;
+}
+body.show-nav{
+    transform: translate(200px);
 }
 
 nav {
@@ -121,7 +125,11 @@ button:focus {
     right: 0;
     bottom: 0;
     left: 0; 
-    /* display: none; */
+    display: none; 
+}
+
+.modal-container.show-modal {
+    display: block;
 }
 
 .modal {
@@ -135,6 +143,8 @@ button:focus {
     transform: translate(-50%,-50%);
     max-width: 100%;
     width: 400px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
 }
 
 .modal-header {
@@ -173,4 +183,13 @@ button:focus {
     right: 0;
     font-size: 24px;
     color: white;
+}
+@keyframes modalopen {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
 }
