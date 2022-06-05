@@ -10,54 +10,51 @@
 <body>
     <!-- Title -->
     <h1>Hangman</h1>
-    <!-- Instructions -->
-    <p>Please use your keybord to guess a letter and complete the hidden word</p>
+    <!-- Instruction -->
+    <p>Please use your keyboard to guess a letter and complete the hidden word.</p>
 
     <!-- Main Game container -->
     <div class="container">
         <!-- Hangman SVG -->
-        <SVG class="hangman-container" height="250" width="200">
+        <svg class="hangman-container" height="250" width="200">
             <!-- Hangman Platform -->
-          <line  x1="60" y1="20" x2="140" y2="20"/>
-          <line  x1="140" y1="20" x2="140" y2="50"/>
-          <line  x1="60" y1="20" x2="60" y2="230"/>
-          <line  x1="20" y1="230" x2="100" y2="230"/>
-          <!-- Hangmans's Haed -->
-          <circle cx="140" cy="70" r="20" class="hangman-part"/>
-          <!--Hangman's core -->
-          <line  x1="140" y1="90" x2="140" y2="150"class="hangman-part"/>
-          <!-- Hanman's Arma -->
-          <line  x1="140" y1="100" x2="120" y2="140"class="hangman-part"/>
-          <line  x1="140" y1="100" x2="160" y2="140"class="hangman-part"/>
-          <!-- Hangman's leg -->
-          <line  x1="140" y1="150" x2="120" y2="190"class="hangman-part"/>
-          <line  x1="140" y1="150" x2="160" y2="190"class="hangman-part"/>
-        </SVG>
-        <!-- Container For Incorrcet Guesses-->
-            <div class="incorrect-guesses-container">
+            <line x1="60" y1="20" x2="140" y2="20" />
+            <line x1="140" y1="20" x2="140" y2="50" />
+            <line x1="60" y1="20" x2="60" y2="230" />
+            <line x1="20" y1="230" x2="100" y2="230" />
+            <!-- Hangman's Head -->
+            <circle cx="140" cy="70" r="20" class="hangman-part" />
+            <!-- Hangman's Core -->
+            <line x1="140" y1="90" x2="140" y2="150" class="hangman-part" />
+            <!-- Hangman's Arms -->
+            <line x1="140" y1="100" x2="120" y2="140" class="hangman-part" />
+            <line x1="140" y1="100" x2="160" y2="140" class="hangman-part" />
+            <!-- Hangman's Legs -->
+            <line x1="140" y1="150" x2="120" y2="190" class="hangman-part" />
+            <line x1="140" y1="150" x2="160" y2="190" class="hangman-part" />
+        </svg>
+        <!-- Container for Incorrect Guesses -->
+        <div class="incorrect-guesses-container">
             <!-- Use JS to add incorrect letters here -->
-        <div id="incorrect-letter">
-        </div>   
+            <div id="incorrect-letters"></div>
+        </div>
+        <!-- This is the main word the player wants to guess -->
+        <!-- Use JS to show word -->
+        <div class="word" id="word"></div>
     </div>
-    <!-- This is the main word the player wants to guess-->
-     <div class="word" id="word"> </div>
-</div>
-
-<!-- Game Over Container -->
-<div class="gameover-container" id="gameover-container">
-    <div class="popup">
-        <!--Message to display when game is finished  -->
-        <!-- <h2 id="gameover-message">Congrats! You Won!</h2> -->
-        <!-- Button to restart the game  -->
-        <!-- <button id="play-btn">Play Again</button> -->
+    <!-- Game Over Container -->
+    <div class="gameover-container" id="gameover-container">
+        <div class="popup">
+            <!-- Message to display when game is finished -->
+            <h2 id="gameover-message">Congrats! You Won!</h2>
+            <!-- Button to restart the game -->
+            <button id="play-btn">Play Again</button>
+        </div>
     </div>
-</div>
-
-<!-- Notification container -->
-<div class="notification-container " id="notification-container">
-   <p>You've already guessed this letter </p>
-</div>
-
+    <!-- Notification Container -->
+    <div class="notification-container" id="notification-container">
+        <p>You've already guessed this letter</p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
