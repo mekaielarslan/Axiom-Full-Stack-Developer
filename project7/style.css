@@ -119,25 +119,3 @@ h1 {
 .notification-container p {
     margin: 0;
 }
-.home,
-.module-A {
-    cursor: pointer;
-    background-color: lightseagreen;
-    border: 2px solid lightseagreen;
-    border-radius: 3px;
-    color: black;
-    display: block;
-    font-size: 16px;
-    padding: 10px;
-    margin-top: 20px;
-    width: 20%;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    align-items: center;
-}
-
-.home:hover,
-.module-A:hover {
-    text-decoration: underline;
-}
